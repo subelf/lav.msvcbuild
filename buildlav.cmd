@@ -6,7 +6,7 @@ pushd "%~dp0"
 if "%~1"=="" goto :eof
 
 setlocal
-call :env_check || goto :finally
+call :check_env || ( endlocal & goto :finally )
 endlocal
 
 set "S_ARCH=%~1"
@@ -82,12 +82,12 @@ set "P_NIX_PATH=%P_NIX_PATH://=/%"
 goto :eof
 
 
-:env_check
+:check_env
 ::==================
 
-call "%F_VCVAR%" 1>NUL 2>&1 || ( echo "F_VCVAR=%F_VCVAR% not found." && exit /b 1 )
-call %C_SHELL% -c "exit" 1>NUL 2>&1 || ( echo "C_SHELL=%C_SHELL% not found." && exit /b 1 )
-dir "%D_LAV%" 1>NUL 2>&1 || ( echo "D_LAV=%D_LAV% not found." && exit /b 1 )
-dir "%SOURCE_DIR%" 1>NUL 2>&1 || ( echo "SOURCE_DIR=%SOURCE_DIR% not found." && exit /b 1 )
+call "%F_VCVAR%" 1>NUL 2>&1 || ( echo F_VCVAR=%F_VCVAR% not found. && exit /b 1 )
+call %C_SHELL% -c "exit" 1>NUL 2>&1 || ( echo C_SHELL=%C_SHELL% not found. && exit /b 1 )
+dir "%D_LAV%" 1>NUL 2>&1 || ( echo D_LAV=%D_LAV% not found. && exit /b 1 )
+dir "%SOURCE_DIR%" 1>NUL 2>&1 || ( echo SOURCE_DIR=%SOURCE_DIR% not found. && exit /b 1 )
 
 exit /b 0
