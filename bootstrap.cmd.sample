@@ -3,7 +3,7 @@
 pushd "%~dp0"
 
 set "F_VCVAR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
-set "F_SHELL=C:\msys64\sr\bin\sh.exe -l -i"
+set "C_SHELL="C:\msys64\sr\bin\sh.exe" -l -i"
 set "D_LAV=%CD%\..\lavfilters"
 
 set "F_BUILD_LAV=.\buildlav.cmd"
