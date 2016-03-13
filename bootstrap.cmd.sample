@@ -1,0 +1,18 @@
+@echo off
+
+pushd "%~dp0"
+
+set "F_VCVAR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
+set "F_SHELL=C:\msys64\sr\bin\sh.exe -l -i"
+set "D_LAV=%CD%\..\lavfilters"
+
+set "F_BUILD_LAV=.\buildlav.cmd"
+set "SOURCE_DIR=%CD%\zlib-1.2.8"
+
+call "%F_BUILD_LAV%" x86 Release
+::call "%F_BUILD_LAV%" x86 Debug
+call "%F_BUILD_LAV%" x64 Release
+::call "%F_BUILD_LAV%" x64 Debug
+
+popd
+goto :eof

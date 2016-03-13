@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+	echo Arguments required.
+	exit 1
+fi
+
+build_config=release
+if [ "x$(echo $2 | tr [A-Z] [a-z])" = "xdebug" ]; then
+	build_config=
+fi
+
+./build_ffmpeg_msvc.sh $1 $build_config

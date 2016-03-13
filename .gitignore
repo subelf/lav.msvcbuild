@@ -1,0 +1,14 @@
+x64
+x86
+bootstrap.cmd
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.aps
+*.db
+*.opendb
+*.bak
+*.obj
+*.dll
+*.lib
